@@ -1,0 +1,13 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WTU.MainApp.ViewModels"
+             x:Class="WTU.MainApp.App">
+    <Application.Styles>
+        <FluentTheme Mode="Light"/>
+    </Application.Styles>
+  <Application.Resources>
+    <ResourceDictionary>
+      <vm:ViewModelLocator x:Key="Locator" />
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

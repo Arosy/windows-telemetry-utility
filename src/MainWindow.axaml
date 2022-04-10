@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="300" SizeToContent="Height"
+        x:Class="WTU.MainApp.MainWindow"
+        Title="Telemetry Utility"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+  <Grid>
+    <StackPanel Margin="5,0">
+      <TextBlock Text="Windows Search with Bing" FontWeight="SemiBold" Margin="0,5" />
+      <TextBlock Text="If you disable this feature, all searches performed through the windows explorer or cortana itself will be limited to your local files only." TextWrapping="Wrap" />
+      <CheckBox Content="Enable Bing Search in Windows" IsChecked="{Binding BingSearchEnabled}" Margin="0,5" />
+      
+      <Border Height="1" BorderThickness="0.3" BorderBrush="Black" HorizontalAlignment="Stretch" Margin="0,2.5,0,0" />
+
+      <TextBlock Text="Web Suggestions in Explorer" FontWeight="SemiBold" Margin="0,5" />
+      <TextBlock Text="If you disable this feature, your searches won't bring up similiar suggestions from the world wide web as additional results." TextWrapping="Wrap"/>
+      <CheckBox Content="Enable Web Suggestions" IsChecked="{Binding EnableSearchBoxSuggestions}" Margin="0,5" />
+      
+      <Border Height="1" BorderThickness="0.3" BorderBrush="Black" HorizontalAlignment="Stretch" Margin="0,2.5,0,0" />
+
+      <TextBlock Text="Cortana Consent" FontWeight="SemiBold" Margin="0,5" />
+      <TextBlock Text="If you disable this feature, cortana bound services are restricted, because no consent was given." TextWrapping="Wrap"/>
+      <CheckBox Content="Grant Consent" IsChecked="{Binding CortanaConsent}" Margin="0,5" />
+
+      <Border Height="1" BorderThickness="0.3" BorderBrush="Black" HorizontalAlignment="Stretch" Margin="0,2.5,0,0" />
+      <TextBlock Text="Windows Upgrade Notification" FontWeight="SemiBold" Margin="0,5" />
+      <TextBlock Text="If you disable this feature, windows will stop bother you to upgrade to Windows 11." TextWrapping="Wrap"/>
+      <CheckBox Content="Disable Windows Upgrade" IsChecked="{Binding BlockWindowsUpgrade}" Margin="0,5" />
+      <TextBox Watermark="Windows Feature Level (e.g. 22H1)" Text="{Binding TargetReleaseVersionInfo}" Margin="0,5" />
+      
+      <Border Height="1" BorderThickness="0.3" BorderBrush="Black" HorizontalAlignment="Stretch" Margin="0,2.5,0,0" />
+      <TextBlock Text="Telemetry Level" FontWeight="SemiBold" Margin="0,5" />
+      <TextBlock Text="Specify the desired telemetry level, this feature cannot be disable entirely therefore its suggested to read up the individual levels if you're unsure what to set here or simply leave it by default." TextWrapping="Wrap"/>
+      <ComboBox SelectedItem="{Binding Telemetry}" Items="{Binding Telemetries}" Margin="0,5" />
+      
+      
+      <Button Content="Save Changes" Command="{Binding SaveChangesCommand}" Margin="0,5" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+    </StackPanel>
+  </Grid>
+</Window>
